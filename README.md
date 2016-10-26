@@ -8,15 +8,13 @@ Run `./build.sh`.
 
 ## How do I use it?
 
-Run `./enter.sh` to open a shell inside the chroot.
+Run `./enter.sh` to open a shell inside the chroot. It'll volume mount the current directory into `/project` of the chroot.
 
 If you want to pass options to docker, use `DOCKER_OPTS`, for example:
 
 ```
-DOCKER_OPTS="-v $(pwd):/project" ./enter.sh
+DOCKER_OPTS="…" ./enter.sh
 ```
-
-From there you could build using `stack` in the `/project` directory.
 
 ## How does it work?
 

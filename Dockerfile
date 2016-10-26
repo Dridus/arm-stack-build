@@ -10,3 +10,4 @@ RUN mkdir /chroot                                             \
  && rm ghc.tar.xz stack.tar.gz arch.tar.gz                    \
  && apt-get clean
 COPY scripts/prepare-chroot.sh scripts/setup-chroot.sh /
+ENTRYPOINT ["/bin/bash", "-c"]
