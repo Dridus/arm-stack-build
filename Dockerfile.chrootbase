@@ -1,0 +1,11 @@
+FROM debian:stretch
+MAINTAINER rmm-github@z.odi.ac
+COPY dists/arm32v7-debian.tar /
+RUN apt-get -qq -y update && apt-get -qq -y install qemu-user qemu-user-static binfmt-support xz-utils
+RUN mkdir /chroot                                             \
+ && tar xpf arm32v7-debian.tar -C /chroot                     \
+ && mkdir -p /chroot/root /chroot/usr/local/bin               \
+ && rm arm32v7-debian.tar                                     \
+ && apt-get clean
+COPY scripts/prepare-chroot.sh scripts/setup-chrootbase.sh /
+ENTRYPOINT ["/bin/bash", "-c"]

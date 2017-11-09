@@ -1,0 +1,11 @@
+FROM rmacleod/arm-stack-chrootbase:jessie
+MAINTAINER rmm-github@z.odi.ac
+COPY dists/stack.tar.gz dists/clang+llvm.tar.xz /
+RUN mkdir -p /chroot/root /chroot/usr/local/bin               \
+ && tar xzpf stack.tar.gz -C /chroot/root                     \
+ && cp /chroot/root/stack-*/stack /chroot/usr/local/bin/stack \
+ && mkdir -p /tmp/clang+llvm                                  \
+ && tar xvJf clang+llvm.tar.xz -C /tmp/clang+llvm             \
+ && cp -Rp /tmp/clang+llvm/*/* /chroot/usr                    \
+ && rm clang+llvm.tar.xz stack.tar.gz
+COPY scripts/setup-buildenv.sh /
