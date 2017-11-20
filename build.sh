@@ -1,7 +1,7 @@
 #! /bin/bash
 
 chrootbase_version_tag="jessie"
-buildenv_version_tag="jessie-8.0.2-1.5.1-lts8.24"
+buildenv_version_tag="jessie-8.0.2-1.5.1-lts9.13"
 prep_container_name=arm-stack-build-prep
 chrootbase_image_name=rmacleod/arm-stack-chrootbase:$chrootbase_version_tag
 buildenv_image_name=rmacleod/arm-stack-build:$buildenv_version_tag
