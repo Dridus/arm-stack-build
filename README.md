@@ -1,3 +1,7 @@
+## DEPRECATED
+
+Probably you shouldn't use this anymore. Modern docker versions have built-in qemu/binfmt-misc support and so you can run ARM docker images directly, e.g. `docker run --rm -ti arm32v7/debian:stretch bash`
+
 ## What is it?
 
 A docker container preconfigured to run GHC and Stack in an arm7h (or other) Linux environment, suitable for compiling binaries for a C.H.I.P. and probably other similar things like Raspberry Pis.
